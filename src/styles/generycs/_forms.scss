@@ -14,10 +14,6 @@
 form {
   @include size(100%, auto);
   overflow: hidden;
-
-  .btn_action {
-    margin: 0 auto;
-  }
 }
 
 // =============================================================================
@@ -33,15 +29,13 @@ input {
   //
   -webkit-appearance: caret;
   // text
-  font-family: 'Lato', sans-serif;
-  @include font-size(16px);
-  @include line-height(22px);
-  color: $ultraDarkGray;
-  //text-align: center;
-
-  &.error{
-    color: $red;
-  }
+  // font-family: 'Lato', sans-serif;
+  // @include font-size(16px);
+  // @include line-height(22px);
+  // color: $ultraDarkGray;
+  // &.error{
+  //   color: $red;
+  // }
 }
 
 textarea {
@@ -54,22 +48,20 @@ textarea {
   //
   -webkit-appearance: caret;
   // text
-  font-family: 'Lato', sans-serif;
-  @include font-size(16px);
-  @include line-height(22px);
-  color: $ultraDarkGray;
-  //text-align: center;
-
-  &.error{
-    color: $red;
-  }
+  // font-family: 'Lato', sans-serif;
+  // @include font-size(16px);
+  // @include line-height(22px);
+  // color: $ultraDarkGray;
+  // &.error{
+  //   color: $red;
+  // }
 }
 
 label {
-  font-family: 'Lato', sans-serif;
+  // font-family: 'Lato', sans-serif;
   @include font-size(14px);
   @include line-height(34px);
-  color: $ultraDarkGray;
+  // color: $ultraDarkGray;
   
   @media #{$breakpoint-smartphone-medium} {
       @include font-size(16px);

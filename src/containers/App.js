@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 
+// Components
+import Appbar from '../components/Appbar';
+
+// URL to fetch
+// https://almundo.com.ar/hotels/async/1317380/allresult?date=2017-02-17,2017-03-10&rooms=2&type=CITY
+
 class App extends Component {
 
   constructor() {
@@ -33,7 +39,10 @@ class App extends Component {
   render() {
     return (
       <section>
-        almundo
+        
+        <Appbar />
+
+
       </section>
     );
   }

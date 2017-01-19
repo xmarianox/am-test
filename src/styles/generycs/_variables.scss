@@ -11,41 +11,10 @@ $button-transition: .3s;
 // -- COLORES
 // =============================================================================
 $white: #FFFFFF;
-$white-40: rgba(255,255,255,.4);
-$white-50: rgba(255,255,255,.5);
-$white-60: rgba(255,255,255,.6);
-$white-80: rgba(255,255,255,.8);
 $black: #000000;
-$black-40: rgba(0,0,0,.4);
-$black-50: rgba(0,0,0,.5);
-$black-70: rgba(0,0,0,.7);
-$black-30: rgba(0,0,0,.3);
+
 // theme
-$brown: rgba(132, 124, 97, 1);
-$yellow: rgba(250, 215, 29, 1);
-$green: #afda6e;
-$light-green: #1ed760;
-$red: rgba(199, 5, 3, 1);
-$orange: #ffa200;
-
-$gray: #3b3b3b;
-$lightGrey: #f1f1f1;
-$lightGrey-2: #bbbbbb;
-$lightGrey-3: #e9e9e9;
-$darkGray: #868686;
-$ultraDarkGray: #4d4d4d;
-
-// Blue
-$semiDarkblue: #59738c;
-$darkBlue: #1c2f63;
-$blue: #224d92;
-
-$lightBlue: #009ee3;
-
-// Progress
-$blueDocumentation: #bfd5df;
-$blueConstruction: #96c2d6;
-$blueFinished: #2f91bf;
+$darkBlue: #002c77;
 
 // =============================================================================
 // -- BREAKPOINTS

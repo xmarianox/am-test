@@ -11,7 +11,7 @@
   background: transparent;
   @include border-radius(50px);
   // Textos
-  font-family: 'Lato', sans-serif;
+  // font-family: 'Lato', sans-serif;
   font-weight: 700;
   color: $white;
   @include font-size(16px);
@@ -20,23 +20,23 @@
   text-transform: uppercase;
   cursor: pointer;
 
-  &_action {
-    background-color: $orange;
-    margin: 30px auto;
-  }
+  // &_action {
+  //   background-color: $orange;
+  //   margin: 30px auto;
+  // }
 
-  &_action_inverse {
-    background-color: $white-80;
-    border: 1px solid $white-80;
-    color: $darkBlue;
-  }
+  // &_action_inverse {
+  //   background-color: $white-80;
+  //   border: 1px solid $white-80;
+  //   color: $darkBlue;
+  // }
 
   @media #{$breakpoint-laptop-small} {
 
     &_action_inverse {
       &:hover {
-        background-color: $darkBlue;
-        border: 1px solid $darkBlue;
+        // background-color: $darkBlue;
+        // border: 1px solid $darkBlue;
         color: $white;
       }
     }
