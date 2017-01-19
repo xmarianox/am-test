@@ -1,0 +1,52 @@
+// =============================================================================
+// GRIDS
+// =============================================================================
+.container {
+  @include size(calc(100% - 12px), auto);
+  margin: 0 auto;
+
+  &:after {
+    @extend %clearfix;
+  }
+}
+
+//
+.row {
+  margin-right: -8px;
+  margin-left: -8px;
+
+  &:after {
+    @extend %clearfix;
+  }
+}
+
+[class*='col-'] {
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  @include transition(.3s);
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+@media #{$breakpoint-medium} {
+
+  .row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .container {
+    @include size(calc(100% - 48px), auto);
+    max-width: $grid-max-width;
+  }
+
+  // loop para generar las class col-
+  @for $i from 1 through $grid-columns {
+    .col-#{$i} {
+      width: 100% / $grid-columns * $i;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+}

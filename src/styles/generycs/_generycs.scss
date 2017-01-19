@@ -1,0 +1,28 @@
+// =============================================================================
+// - Generycs elements
+// =============================================================================
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+  @include border-box;
+  @include transition(2ms);
+}
+
+body {
+  background-color: $white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  color: $black;
+
+  &.up-hidden {
+    overflow: hidden;
+  }
+}
+
+section {
+  @include size(100%, auto);
+}
+
+// =============================================================================
+// - TEXTS
+// =============================================================================

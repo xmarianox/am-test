@@ -1,0 +1,44 @@
+// =============================================================================
+// - Buttons
+// =============================================================================
+.btn {
+  @include size(auto, 39px);
+  padding: 0 30px;
+  display: block;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid transparent;
+  background: transparent;
+  @include border-radius(50px);
+  // Textos
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  color: $white;
+  @include font-size(16px);
+  @include line-height(37px);
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &_action {
+    background-color: $orange;
+    margin: 30px auto;
+  }
+
+  &_action_inverse {
+    background-color: $white-80;
+    border: 1px solid $white-80;
+    color: $darkBlue;
+  }
+
+  @media #{$breakpoint-laptop-small} {
+
+    &_action_inverse {
+      &:hover {
+        background-color: $darkBlue;
+        border: 1px solid $darkBlue;
+        color: $white;
+      }
+    }
+  }
+}

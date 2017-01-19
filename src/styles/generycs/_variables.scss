@@ -1,0 +1,74 @@
+// =============================================================================
+// Variables
+// =============================================================================
+$grid-max-width: 1400px;
+$grid-columns: 12;
+
+$button-size: 2.5rem;
+$button-size-mobile: 2.1rem;
+$button-transition: .3s;
+// =============================================================================
+// -- COLORES
+// =============================================================================
+$white: #FFFFFF;
+$white-40: rgba(255,255,255,.4);
+$white-50: rgba(255,255,255,.5);
+$white-60: rgba(255,255,255,.6);
+$white-80: rgba(255,255,255,.8);
+$black: #000000;
+$black-40: rgba(0,0,0,.4);
+$black-50: rgba(0,0,0,.5);
+$black-70: rgba(0,0,0,.7);
+$black-30: rgba(0,0,0,.3);
+// theme
+$brown: rgba(132, 124, 97, 1);
+$yellow: rgba(250, 215, 29, 1);
+$green: #afda6e;
+$light-green: #1ed760;
+$red: rgba(199, 5, 3, 1);
+$orange: #ffa200;
+
+$gray: #3b3b3b;
+$lightGrey: #f1f1f1;
+$lightGrey-2: #bbbbbb;
+$lightGrey-3: #e9e9e9;
+$darkGray: #868686;
+$ultraDarkGray: #4d4d4d;
+
+// Blue
+$semiDarkblue: #59738c;
+$darkBlue: #1c2f63;
+$blue: #224d92;
+
+$lightBlue: #009ee3;
+
+// Progress
+$blueDocumentation: #bfd5df;
+$blueConstruction: #96c2d6;
+$blueFinished: #2f91bf;
+
+// =============================================================================
+// -- BREAKPOINTS
+// =============================================================================
+$breakpoint-small: 'only screen and (max-width: 20em)';
+$breakpoint-medium: 'only screen and (min-width: 49em)';
+//desktop
+$breakpoint-desktop-big: '(min-width: 106.250em)';
+$breakpoint-desktop-medium: '(min-width: 92em)';
+// laptop
+$breakpoint-laptop-big: '(min-width: 90em)';
+$breakpoint-laptop-pc: '(max-width: 86em)';
+$breakpoint-laptop-small: '(min-width: 70.000em)';
+// tablet
+$breakpoint-tablet-land:'(min-width: 63.938em)';
+$breakpoint-tablet-port:'(min-width: 47em)';
+// smartphone landscape
+$breakpoint-smartphone-big-landscape: 'only screen and (min-width: 40em)';
+$breakpoint-smartphone-medium-landscape: 'only screen and (min-device-width: 41.688em)';
+$breakpoint-smartphone-small-landscape: 'only screen and (min-device-width: 35.500em)';
+// smartphone portrait
+$breakpoint-smartphone-big: '(min-width: 25.000em)';
+$breakpoint-smartphone-medium: '(min-width: 23.375em)';
+$breakpoint-smartphone-small: '(max-width: 20.000em)';
+
+
