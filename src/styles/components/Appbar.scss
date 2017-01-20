@@ -32,31 +32,59 @@
         }
     }
 
-
     &-mini-menu {
         margin: auto;
         margin-right: 0;
-
+        
         ul {
             display: block;
+            // flex
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: space-between;
 
             li {
-                display: inline-block;
-                vertical-align: middle;
                 margin: auto 10px;
             }
         }
-    }
 
-    // a {
-    //     margin: auto 10px;
-    //     color: $white;
-    // }
+        a {
+            color: $white;
+        }
+    }
 
     // material icons
     .material-icons {
         @include font-size(24px);
         @include line-height(24px);
+    }
+
+
+    // menu
+
+    &-container-menu {
+        @include size(100%, auto);
+        background-color: $white;
+    }
+
+    &-menu {
+        @include size(100%, auto);
+        background-color: $white;
+
+        li {
+          @include size(100%, auto);
+          border-bottom: 1px solid $lightGray;
+          padding: 0 16px;
+        }
+
+        a {
+            @include font-size(14px);
+            @include line-height(40px);
+            flex-wrap: 400;
+            color: $darkGray;
+        }
     }
 
 }
@@ -67,7 +95,7 @@
 .btn-hamburger {
   background: transparent;
   border: none;
-  height: 29px;
+  height: 18px;
   padding: 0;
   margin: 0;
   // margin: 8px 0;
