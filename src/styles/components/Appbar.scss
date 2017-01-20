@@ -1,7 +1,21 @@
 @import "../generycs/variables";
 // Appbar Component
-.Appbar {
+.appbar {
     width: 100%;
-    height: auto;
-    background-color: $darkBlue; 
+    height: 56px;
+    background-color: $darkBlue;
+    padding: 8px;
+
+    &_icon {
+        width: 136px;
+        height: auto;
+        display: block;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+
 }
