@@ -5,6 +5,7 @@ import '../styles/components/Appbar.scss';
 import brandIcon from '../images/logo-almundo.svg';
 
 class Appbar extends Component {
+    
     constructor() {
         super();
 
@@ -34,15 +35,30 @@ class Appbar extends Component {
         this.setState({ menu_open: !this.state.menu_open });
     }
 
+    _renderMenu(visible) {
+        if (visible) {
+            return (
+                <div className="appbar-container-menu">
+                    <ul className="appbar-menu">
+                    { this.state.munu_items.map((item) => {
+                            return <li key={item.id}><a href={item.route} title={item.label}>{item.label}</a></li>;
+                        })
+                    }
+                    </ul>
+                </div>
+            );
+        }
+    }
+
     render() {
         return (
             <header className="appbar">
-                <div>
-                    <a href="#" className="appbar_icon" title="almundo.com">
+                <div className="appbar-container">
+                    <a href="#" className="appbar-icon" title="almundo.com">
                         <img src={brandIcon} alt="almundo.com" />
                     </a>
 
-                    <div>
+                    <div className="appbar-mini-menu">
                         <ul>
                             <li>
                                 <a href="#" title="Ingresar"><i className="material-icons">person</i></a>
@@ -51,11 +67,9 @@ class Appbar extends Component {
                                 <a href="#" title="Llamanos"><i className="material-icons">phone</i></a>
                             </li>
                             <li>
-                                <button 
+                                <button className={ this.state.menu_open ? 'btn-hamburger active' : 'btn-hamburger' } 
                                     onClick={this._toggleMenu.bind(this)} 
-                                    className={ this.state.menu_open ? 'btn-hamburger active' : 'btn-hamburger' } 
-                                    type="button" role="button"
-                                >
+                                    type="button" role="button">
                                     <span className="lines"></span>
                                 </button>
                             </li>
@@ -63,15 +77,7 @@ class Appbar extends Component {
                     </div>
                 </div>{/* blue container */}
 
-                <div>
-                    <ul>
-                        {
-                            this.state.munu_items.map((item) => {
-                                return <li key={item.id}><a href={item.route} title={item.label}>{item.label}</a></li>;
-                            })
-                        }
-                    </ul>
-                </div>{/* menu container */}
+                {this._renderMenu(this.state.menu_open)}
             </header>
         );
     }

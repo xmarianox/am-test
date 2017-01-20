@@ -4,25 +4,27 @@
 // -- Appbar Component
 // =============================================================================
 .appbar {
-    @include size(100%, 56px);
-    background-color: $darkBlue;
-    padding: 8px;
-    // flex
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
+    @include size(100%, auto);
     // texts
     color: $white;
 
+    &-container {
+        @include size(100%, 56px);
+        background-color: $darkBlue;
+        // flex
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+    }
 
     // brand icon
-    &_icon {
+    &-icon {
         @include size(136px, auto);
         display: block;
         margin: auto;
-        margin-left: 0px;
+        margin-left: 8px;
 
         img {
             @include size(100%, auto);
@@ -31,10 +33,25 @@
     }
 
 
-    a {
-        margin: auto 10px;
-        color: $white;
+    &-mini-menu {
+        margin: auto;
+        margin-right: 0;
+
+        ul {
+            display: block;
+
+            li {
+                display: inline-block;
+                vertical-align: middle;
+                margin: auto 10px;
+            }
+        }
     }
+
+    // a {
+    //     margin: auto 10px;
+    //     color: $white;
+    // }
 
     // material icons
     .material-icons {
