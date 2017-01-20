@@ -1,8 +1,10 @@
 @import "../generycs/variables";
-// Appbar Component
+@import "../generycs/mixins";
+// =============================================================================
+// -- Appbar Component
+// =============================================================================
 .appbar {
-    width: 100%;
-    height: 56px;
+    @include size(100%, 56px);
     background-color: $darkBlue;
     padding: 8px;
     // flex
@@ -11,19 +13,102 @@
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
+    // texts
+    color: $white;
 
-    //
 
+    // brand icon
     &_icon {
-        width: 136px;
-        height: auto;
+        @include size(136px, auto);
         display: block;
+        margin: auto;
+        margin-left: 0px;
 
         img {
-            width: 100%;
-            height: auto;
+            @include size(100%, auto);
             display: block;
         }
     }
 
+
+    a {
+        margin: auto 10px;
+        color: $white;
+    }
+
+    // material icons
+    .material-icons {
+        @include font-size(24px);
+        @include line-height(24px);
+    }
+
+}
+
+// =============================================================================
+// -- Hamburger Button
+// =============================================================================
+.btn-hamburger {
+  background: transparent;
+  border: none;
+  height: 29px;
+  padding: 0;
+  margin: 0;
+  // margin: 8px 0;
+  transition: .3s;
+  cursor: pointer;
+  user-select: none;
+  @include border-radius(0);
+  /* */
+  &:hover {
+    opacity: 1;
+  }
+  &:active {
+    transition: 0;
+  }
+  &.active {
+    -webkit-transform: scale3d(.8,.8,.8);
+        transform: scale3d(.8,.8,.8);
+  }
+
+  //three-lines to x
+  &.active {
+    .lines {
+      background: transparent;
+      &:before, &:after{
+        -webkit-transform-origin: 50% 50%;
+                transform-origin: 50% 50%;
+        top:0;
+        width: $button-size;
+      }
+      &:before{
+        -webkit-transform: rotate3d(0,0,1,45deg);
+                transform: rotate3d(0,0,1,45deg);
+      }
+      &:after{
+        -webkit-transform: rotate3d(0,0,1,-45deg);
+                transform: rotate3d(0,0,1,-45deg);
+      }
+    }
+  }
+}
+
+//common to all three-liners
+.lines {
+  @include line;
+  position: relative;
+
+  &:before, &:after {
+   @include line;
+    position: absolute;
+    left:0;
+    content: '';
+    -webkit-transform-origin: $button-size/14 center;
+            transform-origin: $button-size/14 center;
+  }
+  &:before {
+    top: $button-size/4;
+  }
+  &:after {
+    top: -$button-size/4;
+  }
 }
