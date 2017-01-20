@@ -22,21 +22,6 @@
 }
 
 // =============================================================================
-// Border-radius
-// =============================================================================
-@mixin animationDelay($duration, $delay) {
-  -webkit-animation-duration: $duration;
-     -moz-animation-duration: $duration;
-      -ms-animation-duration: $duration;
-          animation-duration: $duration;
-
-  -webkit-animation-delay: $delay;
-     -moz-animation-delay: $delay;
-      -ms-animation-delay: $delay;
-          animation-delay: $delay;
-}
-
-// =============================================================================
 // Transition
 // =============================================================================
 @mixin transition($time) {
@@ -137,33 +122,9 @@
   background: $white;
   transition: $button-transition;
 
-  @media #{$breakpoint-smartphone-big} {
-    width: $button-size-mobile;
-  }
-}
-
-@mixin line-white {
-  display: inline-block;
-  width: $button-size;
-  height: 3px;
-  vertical-align: middle;
-  background: $white;
-  transition: $button-transition;
-
-  @media #{$breakpoint-smartphone-big} {
-    width: $button-size-mobile;
-  }
-}
-
-// =============================================================================
-// FLEX-LIST
-// =============================================================================
-@mixin flex-list {
-  display: flex;
-  flex-flow: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
+  // @media #{$breakpoint-smartphone-big} {
+  //   width: $button-size-mobile;
+  // }
 }
 
 // =============================================================================
