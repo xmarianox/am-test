@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 // image gallery
 import ImageGallery from 'react-image-gallery';
+import {IntlProvider, FormattedNumber} from 'react-intl';
 
 class HotelsResultListItem extends Component {
     /**
@@ -143,7 +144,7 @@ class HotelsResultListItem extends Component {
 
                 </div>
                 <div>
-                    <p>{hotel.rate.price.amount}</p>
+                    {this._renderPriceBlock(hotel)}
                 </div>
             </li>
         );
@@ -201,6 +202,104 @@ class HotelsResultListItem extends Component {
         }
 
         return itemList;
+    }
+
+    _renderPriceBlock(hotel) {
+// "rate": {
+//     "id": "8216d9b3-5847-412b-b88a-800138234dcd",
+//     "price": {
+//         "per_night": 1519.74,
+//         "total": 21276.2949,
+//         "discount": {
+//         "amount": 2364.3,
+//         "percentage": 10
+//     },
+//     "currency": {
+//         "id": 1802240,
+//         "code": "ARS",
+//         "mask": "$",
+//         "ratio": 16.1
+//     },
+//     "price_without_discount": 23640.5949,
+//     "price_per_night_per_room": 1688.62,
+//     "total_with_operation_cost": 22340.109645,
+//     "charges": [
+//         {
+//             "amount": 175.8371479255111,
+//             "type": "VAT",
+//             "description": "VAT",
+//             "included": true
+//         }
+//     ],
+//     "show_amount": 17583.714793564268,
+//     "show_amount_per_night_per_room": 1255.98,
+//     "show_amount_with_operation_cost": 18462.90053324248,
+//     "show_amount_per_night_per_room_without_discount": 1395.53
+//     },
+//     "smoking_preference": {},
+//     "meal_plan": {
+//         "code": "ROOM_ONLY",
+//         "description": "solo la habitación"
+//     },
+//     "payment_method": {
+//         "code": "PREPAID",
+//         "description": "Paga en cuotas"
+//     },
+//     "refundable": false,
+//     "promotion": "",
+//     "cancel_policies": [],
+//     "free_cancel_date": {
+//         "date": 0,
+//         "month": "",
+//         "monthNumber": 0,
+//         "day": "",
+//         "year": 0,
+//         "plain": ""
+//     }
+// },
+// "payment_methods": [
+//     {
+//         "code": "PREPAID",
+//         "description": "Paga en cuotas"
+//     },
+//     {
+//         "code": "PAY_AT_DESTINATION",
+//         "description": "Paga en destino"
+//     }
+// ],
+// "slug": "hotel-avenida-gran-via-47900",
+// "defaultPaymentMethod": "PREPAID"
+        return (
+            <div>
+                <p>Precio por noche por habitación</p>
+
+                <span>
+                    <span>{hotel.rate.price.currency.code}</span>
+
+                    {/* {Number(hotel.rate.price.show_amount_per_night_per_room.toFixed(1)).toLocaleString()} */}
+                    <span>
+                        <IntlProvider locale="es-AR">
+                            <FormattedNumber 
+                                value={hotel.rate.price.show_amount_per_night_per_room} 
+                                currency={hotel.rate.price.currency.code} 
+                            />
+                        </IntlProvider>
+                    </span>
+                </span>
+
+                <p>Impuestos y tasas no incluidos</p>
+
+                <a href="#" title="Ver hotel">Ver hotel</a>
+
+                {
+                    hotel.payment_methods.map((item) => {
+                        return <strong key={item.code}>{item.description}</strong>;
+                    })
+                }
+
+            </div>
+        )
+
     }
 
 }
