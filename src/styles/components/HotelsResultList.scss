@@ -89,6 +89,7 @@
     .stars-list {
         @include size(100%, auto);
         overflow: hidden;
+        margin-bottom: 16px;
 
         i {
             width: 16px;
@@ -103,6 +104,7 @@
         @include font-size(14px);
         @include line-height(16px);
         color: $orange;
+        margin-bottom: 16px;
 
         i {
             @include font-size(14px);
@@ -114,6 +116,17 @@
             font-weight: bold;
             text-transform: capitalize;
             vertical-align: middle;
+        }
+    }
+
+    .amenities-list {
+        @include size(100%, auto);
+        margin-bottom: 16px;
+
+        i {
+            @include font-size(20px);
+            @include line-height(24px);
+            margin: 0 4px;
         }
     }
 }

@@ -81,27 +81,27 @@ class HotelsResultListItem extends Component {
                 "show_amount_per_night_per_room": 1255.98,
                 "show_amount_with_operation_cost": 18462.90053324248,
                 "show_amount_per_night_per_room_without_discount": 1395.53
-            },
-            "smoking_preference": {},
-            "meal_plan": {
-                "code": "ROOM_ONLY",
-                "description": "solo la habitación"
-            },
-            "payment_method": {
-                "code": "PREPAID",
-                "description": "Paga en cuotas"
-            },
-            "refundable": false,
-            "promotion": "",
-            "cancel_policies": [],
-            "free_cancel_date": {
-                "date": 0,
-                "month": "",
-                "monthNumber": 0,
-                "day": "",
-                "year": 0,
-                "plain": ""
-            }
+                },
+                "smoking_preference": {},
+                "meal_plan": {
+                    "code": "ROOM_ONLY",
+                    "description": "solo la habitación"
+                },
+                "payment_method": {
+                    "code": "PREPAID",
+                    "description": "Paga en cuotas"
+                },
+                "refundable": false,
+                "promotion": "",
+                "cancel_policies": [],
+                "free_cancel_date": {
+                    "date": 0,
+                    "month": "",
+                    "monthNumber": 0,
+                    "day": "",
+                    "year": 0,
+                    "plain": ""
+                }
             },
             "payment_methods": [
                 {
@@ -118,6 +118,38 @@ class HotelsResultListItem extends Component {
         }
      */
 
+    render () {
+        const hotel = this.props.hotel;
+
+        return (
+            <li className="HotelsResultListItem">
+                <div className="gallery-container">
+                    {this._isRecommended(hotel.recommended)}
+                    {this._rendeGallery(hotel.images)}
+                </div>
+
+                <div className="description-container">
+                    <h2>{hotel.name}</h2>
+
+                    <div className="stars-list">
+                        {this._renderStars(hotel.stars)}
+                    </div>
+
+                    {this._renderMealPlan(hotel.rate.meal_plan)}
+
+                    <div className="amenities-list">
+                        {this._renderAmenities(hotel.amenities)}
+                    </div>
+
+                </div>
+                <div>
+                    <p>{hotel.rate.price.amount}</p>
+                </div>
+            </li>
+        );
+    }
+
+    // render subComponents methods
     _renderStars(stars) {
         let StarList = [];
 
@@ -157,33 +189,67 @@ class HotelsResultListItem extends Component {
         return (<p className="meal-plan">{plan.code === "ROOM_ONLY" ? <i className="material-icons">hotel</i> : ''} <span>{plan.description}</span></p>);
     }
 
-    render () {
-        const hotel = this.props.hotel;
+    _renderAmenities(list) {
+        let itemList = [];
 
-        return (
-            <li className="HotelsResultListItem">
-                <div className="gallery-container">
-                    {this._isRecommended(hotel.recommended)}
-                    {this._rendeGallery(hotel.images)}
-                </div>
+        for (let i = 0; i < list.length; i++) {
+            if (itemList.length > 5) {
+                 break;
+            } else {
+                itemList.push(<i className="material-icons" key={i}>{switchIcons(list[i])}</i>);
+            }
+        }
 
-                <div className="description-container">
-                    <h2>{hotel.name}</h2>
-
-                    <div className="stars-list">
-                        {this._renderStars(hotel.stars)}
-                    </div>
-
-                    {this._renderMealPlan(hotel.rate.meal_plan)}
-
-                </div>
-                <div>
-                    <p>{hotel.rate.price.amount}</p>
-                </div>
-            </li>
-        );
+        return itemList;
     }
+
 }
 
+function switchIcons(icon) {
+    switch (icon.code) {
+        case "coffee-shop":
+            return 'local_cafe';
+        case "bar":
+            return 'local_bar';
+        case "beach-pool-facilities":
+            return 'beach_access';
+        case "check-in":
+            return 'check_box';
+        case "internet":
+            return 'wifi';
+        case "tours-ticket-assistance":
+            return 'local_play';
+        case "fitness-center":
+            return 'fitness_center';
+        case "hair-salon":
+            return 'content_cut';
+        case "meeting-rooms":
+            return 'group';
+        case "business-center":
+            return 'business_center';
+        case "housekeeping":
+            return 'brush';
+        case "safety-box":
+            return 'lock';
+        case "air-condition":
+            return 'ac_unit';
+        case "children-club":
+            return 'child_care';
+        case "garden":
+            return 'local_florist';
+        case "television":
+            return 'tv';
+        case "parking":
+            return 'local_parking';
+        case "pool":
+            return 'pool';
+        case "restaurant":
+            return 'restaurant';
+        case "smoking-areas":
+            return 'smoking_rooms';
+        default:
+            break;
+    }
+}
 
 export default HotelsResultListItem;
