@@ -153,6 +153,10 @@ class HotelsResultListItem extends Component {
         }
     }
 
+    _renderMealPlan(plan) {        
+        return (<p className="meal-plan">{plan.code === "ROOM_ONLY" ? <i className="material-icons">hotel</i> : ''} <span>{plan.description}</span></p>);
+    }
+
     render () {
         const hotel = this.props.hotel;
 
@@ -163,12 +167,14 @@ class HotelsResultListItem extends Component {
                     {this._rendeGallery(hotel.images)}
                 </div>
 
-                <div>
-                    <h3>{hotel.name}</h3>
+                <div className="description-container">
+                    <h2>{hotel.name}</h2>
 
-                    <div>
+                    <div className="stars-list">
                         {this._renderStars(hotel.stars)}
                     </div>
+
+                    {this._renderMealPlan(hotel.rate.meal_plan)}
 
                 </div>
                 <div>

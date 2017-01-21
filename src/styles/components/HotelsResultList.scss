@@ -76,5 +76,44 @@
 }
 
 .description-container {
-    
+    @include size(100%, auto);
+    overflow: hidden;
+    padding: 8px 0;
+
+    h2 {
+        @include font-size(16px);
+        @include line-height(24px);
+        font-weight: bold;
+    }
+
+    .stars-list {
+        @include size(100%, auto);
+        overflow: hidden;
+
+        i {
+            width: 16px;
+            margin-right: 4px;
+            @include font-size(16px);
+            @include line-height(24px);
+            color: $starYellow;
+        }
+    }
+
+    .meal-plan {
+        @include font-size(14px);
+        @include line-height(16px);
+        color: $orange;
+
+        i {
+            @include font-size(14px);
+            @include line-height(14px);
+        }
+
+        span {
+            display: inline-block;
+            font-weight: bold;
+            text-transform: capitalize;
+            vertical-align: middle;
+        }
+    }
 }
