@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 // image gallery
 import ImageGallery from 'react-image-gallery';
-import {IntlProvider, FormattedNumber} from 'react-intl';
 
 class HotelsResultListItem extends Component {
     /**
@@ -275,16 +274,7 @@ class HotelsResultListItem extends Component {
 
                 <span>
                     <span>{hotel.rate.price.currency.code}</span>
-
-                    {/* {Number(hotel.rate.price.show_amount_per_night_per_room.toFixed(1)).toLocaleString()} */}
-                    <span>
-                        <IntlProvider locale="es-AR">
-                            <FormattedNumber 
-                                value={hotel.rate.price.show_amount_per_night_per_room} 
-                                currency={hotel.rate.price.currency.code} 
-                            />
-                        </IntlProvider>
-                    </span>
+                    <span>{Number(hotel.rate.price.show_amount_per_night_per_room.toFixed(1)).toLocaleString()}</span>
                 </span>
 
                 <p>Impuestos y tasas no incluidos</p>
