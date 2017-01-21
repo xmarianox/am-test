@@ -2,10 +2,15 @@ import React, { Component } from 'react';
 
 // Components
 import Appbar from '../components/Appbar';
-
+import HotelsResultList from '../components/HotelsResultList';
 
 
 /** URL to fetch
+ * 
+ *
+ 
+ - https://almundo.com.ar/hotels/async/1317380/hotels?date=2017-03-15,2017-03-29&rooms=2&type=CITY
+
  - https://almundo.com.ar/hotels/async/1317380/allresult?date=2017-02-17,2017-03-10&rooms=2&type=CITY
 
 Response:
@@ -32,7 +37,7 @@ Response:
 */
 
 
-const API_URL = 'https://almundo.com.ar/hotels/async/1317380/allresult?date=2017-02-17,2017-03-10&rooms=2&type=CITY';
+const API_URL = 'https://almundo.com.ar/hotels/async/1317380/hotels?date=2017-03-15,2017-03-29&rooms=2&type=CITY';
 
 class App extends Component {
 
@@ -63,14 +68,7 @@ class App extends Component {
       <section>
         <Appbar />
 
-
-        <ul>
-          {
-            this.state.hotels.map((hotel) => {
-              return <li key={hotel.id}>{hotel.name}</li>
-            })
-          }
-        </ul>
+        <HotelsResultList hotels={this.state.hotels} />
 
       </section>
     );

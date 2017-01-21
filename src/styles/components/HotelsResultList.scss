@@ -1,0 +1,80 @@
+@import "../generycs/variables";
+@import "../generycs/mixins";
+
+@import "node_modules/react-image-gallery/styles/scss/image-gallery.scss";
+// =============================================================================
+// -- List Component
+// =============================================================================
+.HotelsResultList {
+    @include size(100%, auto);
+    overflow: hidden;   
+}
+
+.HotelsResultListItem {
+    @include size(100%, auto);
+    background-color: $white;
+    overflow: hidden;
+    padding: 8px;
+    box-shadow: 0px 1px 3px 0px $listItemShadow;
+    margin: auto;
+    margin-bottom: 16px;
+
+    // gallery
+    .image-gallery-image {
+        max-height: 190px;
+    }
+    
+    .image-gallery-left-nav {
+        left: 8px;
+    }
+    
+    .image-gallery-right-nav {
+        right: 8px;
+    }
+
+    .image-gallery-left-nav,
+    .image-gallery-right-nav {
+        @include size(26px, 26px);
+        @include border-radius(50%);
+        overflow: hidden;
+        background-color: $white;
+        padding: 0;
+
+        @include font-size(18px);
+        @include line-height(25px);
+        color: $arrowBlue;
+
+        &:before {
+            @include line-height(26px);
+            color: $arrowBlue;
+            text-shadow: none;
+            font-weight: bold;
+        }
+    }
+}
+
+.item-recommended {
+    @include size(100%, auto);
+    display: block;
+    background-color: $recommendedBlue;
+    padding: 8px;
+    // text
+    color: $white;
+    font-weight: bold;
+    text-align: center;
+    @include font-size(14px);
+    @include line-height(16px);
+
+    // position
+    position: absolute;
+    z-index: 10;
+}
+
+.gallery-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.description-container {
+    
+}
