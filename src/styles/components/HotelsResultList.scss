@@ -18,6 +18,7 @@
     box-shadow: 0px 1px 3px 0px $listItemShadow;
     margin: auto;
     margin-bottom: 16px;
+    position: relative;
 
     // gallery
     .image-gallery-image {
@@ -127,5 +128,84 @@
             @include line-height(24px);
             margin: 0 4px;
         }
+    }
+}
+
+.price-container {
+    @include size(100%, auto);
+    padding-top: 16px;
+    border-top: 1px dashed $dashedGray;
+    text-align: center;
+
+    p {
+        @include font-size(14px);
+        @include line-height(16px);
+        margin-bottom: 8px;
+    }
+
+    .price-amount {
+        color: $orange;
+        display: block;
+        margin-bottom: 8px;
+        
+        span {
+            display: inline-block;
+        }
+
+        &-currency {
+            @include font-size(24px);
+            @include line-height(40px);
+            margin-right: 4px;
+            vertical-align: top;
+        }
+
+        &-display-price {
+            @include font-size(36px);
+            @include line-height(40px);
+            font-weight: bold;
+        }
+    }
+
+    strong {
+        @include font-size(14px);
+        @include line-height(16px);
+        font-weight: bold;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.discount-label {
+    @include size(40px, 48px);
+    background-color: $green;
+    padding-top: 4px;
+    @include border-radius(2px);
+    border-top-right-radius: 0px;
+    // position
+    position: absolute;
+    top: 0px;
+    left: 16px; 
+    z-index: 11;
+    // text
+    @include font-size(14px);
+    @include line-height(18px);
+    color: $white;
+    font-weight: bold;
+    text-align: center;
+
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -8px;
+        border-width: 4px;
+        border-style: solid;
+        border-color: transparent transparent $darkGreen $darkGreen;
+    }
+
+
+    span {
+        display: inline-block;
     }
 }

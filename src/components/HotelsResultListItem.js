@@ -123,11 +123,16 @@ class HotelsResultListItem extends Component {
 
         return (
             <li className="HotelsResultListItem">
+
+                {this._renderDiscountLabel(hotel.rate.price.discount)}
+
+                {/* IMAGE GALLERY */}
                 <div className="gallery-container">
                     {this._isRecommended(hotel.recommended)}
                     {this._rendeGallery(hotel.images)}
                 </div>
 
+                {/* DESCRIPTION */}
                 <div className="description-container">
                     <h2>{hotel.name}</h2>
 
@@ -142,9 +147,9 @@ class HotelsResultListItem extends Component {
                     </div>
 
                 </div>
-                <div>
-                    {this._renderPriceBlock(hotel)}
-                </div>
+                
+                {/* PRICE */}
+                {this._renderPriceBlock(hotel)}
             </li>
         );
     }
@@ -163,9 +168,9 @@ class HotelsResultListItem extends Component {
     _rendeGallery(collection) {
         let imagesCollection = [];
 
-        for (let i = 0; i < collection.length; i++) {
-            imagesCollection.push({original: `http:${collection[i].url}`});
-        }
+        collection.map((image) => {
+            return imagesCollection.push({original: `http:${image.url}`});
+        });
 
         return (
             <ImageGallery
@@ -180,13 +185,11 @@ class HotelsResultListItem extends Component {
     }
 
     _isRecommended(bool) {
-        if (bool) {
-            return <span className="item-recommended">¡Hotel recomendado!</span>
-        }
+            return bool ? <span className="item-recommended">¡Hotel recomendado!</span> : null;
     }
 
     _renderMealPlan(plan) {        
-        return (<p className="meal-plan">{plan.code === "ROOM_ONLY" ? <i className="material-icons">hotel</i> : ''} <span>{plan.description}</span></p>);
+        return <p className="meal-plan">{plan.code === "ROOM_ONLY" ? <i className="material-icons">hotel</i> : ''} <span>{plan.description}</span></p>;
     }
 
     _renderAmenities(list) {
@@ -204,82 +207,18 @@ class HotelsResultListItem extends Component {
     }
 
     _renderPriceBlock(hotel) {
-// "rate": {
-//     "id": "8216d9b3-5847-412b-b88a-800138234dcd",
-//     "price": {
-//         "per_night": 1519.74,
-//         "total": 21276.2949,
-//         "discount": {
-//         "amount": 2364.3,
-//         "percentage": 10
-//     },
-//     "currency": {
-//         "id": 1802240,
-//         "code": "ARS",
-//         "mask": "$",
-//         "ratio": 16.1
-//     },
-//     "price_without_discount": 23640.5949,
-//     "price_per_night_per_room": 1688.62,
-//     "total_with_operation_cost": 22340.109645,
-//     "charges": [
-//         {
-//             "amount": 175.8371479255111,
-//             "type": "VAT",
-//             "description": "VAT",
-//             "included": true
-//         }
-//     ],
-//     "show_amount": 17583.714793564268,
-//     "show_amount_per_night_per_room": 1255.98,
-//     "show_amount_with_operation_cost": 18462.90053324248,
-//     "show_amount_per_night_per_room_without_discount": 1395.53
-//     },
-//     "smoking_preference": {},
-//     "meal_plan": {
-//         "code": "ROOM_ONLY",
-//         "description": "solo la habitación"
-//     },
-//     "payment_method": {
-//         "code": "PREPAID",
-//         "description": "Paga en cuotas"
-//     },
-//     "refundable": false,
-//     "promotion": "",
-//     "cancel_policies": [],
-//     "free_cancel_date": {
-//         "date": 0,
-//         "month": "",
-//         "monthNumber": 0,
-//         "day": "",
-//         "year": 0,
-//         "plain": ""
-//     }
-// },
-// "payment_methods": [
-//     {
-//         "code": "PREPAID",
-//         "description": "Paga en cuotas"
-//     },
-//     {
-//         "code": "PAY_AT_DESTINATION",
-//         "description": "Paga en destino"
-//     }
-// ],
-// "slug": "hotel-avenida-gran-via-47900",
-// "defaultPaymentMethod": "PREPAID"
         return (
-            <div>
+            <div className="price-container">
                 <p>Precio por noche por habitación</p>
 
-                <span>
-                    <span>{hotel.rate.price.currency.code}</span>
-                    <span>{Number(hotel.rate.price.show_amount_per_night_per_room.toFixed(1)).toLocaleString()}</span>
+                <span className="price-amount">
+                    <span className="price-amount-currency">{hotel.rate.price.currency.code}</span>
+                    <span className="price-amount-display-price">{Number(hotel.rate.price.show_amount_per_night_per_room.toFixed(0)).toLocaleString()}</span>
                 </span>
 
                 <p>Impuestos y tasas no incluidos</p>
 
-                <a href="#" title="Ver hotel">Ver hotel</a>
+                <a href="#" className="btn btn-action" title="Ver hotel">Ver hotel</a>
 
                 {
                     hotel.payment_methods.map((item) => {
@@ -290,6 +229,17 @@ class HotelsResultListItem extends Component {
             </div>
         )
 
+    }
+
+    _renderDiscountLabel(discount) {
+        let box = (
+            <div className="discount-label">
+                <span>{discount.percentage}%</span>
+                <span>OFF</span>
+            </div>
+        );
+
+        return discount.percentage !== 0 ? box : null;
     }
 
 }
