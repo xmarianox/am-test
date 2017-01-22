@@ -2,6 +2,7 @@
   "name": "almundoTest",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://xmarianox.github.io/am-test/",
   "devDependencies": {
     "node-sass": "^4.3.0",
     "sass-loader": "^4.1.1",
