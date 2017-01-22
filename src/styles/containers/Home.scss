@@ -4,9 +4,9 @@
 // -- App Component
 // =============================================================================
 .home-container {
-  min-height: 100vh;
-  overflow: hidden;
-  padding-top: 76px;
+  @include size(100%, auto);
+  padding: 16px 8px;
+
   // responsive
   // @media #{$breakpoint-smartphone-medium} {}
   // @media #{$breakpoint-smartphone-big-landscape} {}

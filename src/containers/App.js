@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
+import '../styles/containers/Home.scss';
 // Components
 import Appbar from '../components/Appbar';
 import HotelsResultList from '../components/HotelsResultList';
-
 
 /** URL to fetch
  * 
@@ -35,8 +34,6 @@ Response:
     }
   ]
 */
-
-
 const API_URL = 'https://almundo.com.ar/hotels/async/1317380/hotels?date=2017-03-15,2017-03-29&rooms=2&type=CITY';
 
 class App extends Component {
@@ -68,8 +65,11 @@ class App extends Component {
       <section>
         <Appbar />
 
-        <HotelsResultList hotels={this.state.hotels} />
+        
 
+        <article className="home-container">
+          <HotelsResultList hotels={this.state.hotels} />
+        </article>
       </section>
     );
   }
