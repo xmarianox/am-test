@@ -4,6 +4,7 @@ import '../styles/containers/Home.scss';
 import Appbar from '../components/Appbar';
 import Loader from '../components/Loader';
 import HotelFilterMobile from '../components/HotelFilterMobile';
+import OrderResultsList from '../components/OrderResultsList';
 import HotelsResultList from '../components/HotelsResultList';
 
 
@@ -46,7 +47,15 @@ class App extends Component {
 
     this.state = {
       hotels: [],
-      loaderVisible: true
+      loaderVisible: true,
+      orderOptions: [
+        { value: 'recommended', label: 'Más relevantes' },
+        { value: 'price-ASC', label: 'Precio más bajo' },
+        { value: 'price-DESC', label: 'Precio más alto' },
+        { value: 'stars-ASC', label: 'Menos estrellas' },
+        { value: 'stars-DESC', label: 'Más estrellas' }
+      ],
+      selectedOption: 'recommended'
     };
   }
 
@@ -78,8 +87,16 @@ class App extends Component {
           <Loader visible={this.state.loaderVisible} />
 
           <div>
+
             <aside>
               <HotelFilterMobile />
+
+              <OrderResultsList
+                value={this.state.selectedOption}
+                options={this.state.orderOptions} 
+                onChangeOrder={this._handleOptionChange.bind(this)}
+              />
+
             </aside>
 
             <div>
@@ -91,6 +108,33 @@ class App extends Component {
       </section>
     );
   }
+
+
+  _handleOptionChange(item) {
+    this.setState({
+      selectedOption: item.value
+    });
+  }
+
+  _orderCollection() {
+
+    let collection = this.state.hotels;
+    let orderType = this.state.selectedOption;
+
+/**
+ * recommended
+ * price-ASC
+ * price-DESC
+ * stars-ASC
+ * stars-DESC
+ */
+    // let map = collection.map((el, i) => {
+    //   return 
+    // })
+
+  }
+
+
 }
 
 export default App;
