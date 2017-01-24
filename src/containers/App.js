@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/containers/Home.scss';
 // Components
 import Appbar from '../components/Appbar';
+import Loader from '../components/Loader';
 import HotelsResultList from '../components/HotelsResultList';
 
 /** URL to fetch
@@ -42,7 +43,8 @@ class App extends Component {
     super();
 
     this.state = {
-      hotels: []
+      hotels: [],
+      loaderVisible: true
     };
   }
 
@@ -55,7 +57,8 @@ class App extends Component {
     }).then((collection) => {
       // console.log(`HOTELES: ${collection.hotels}`);
       this.setState({
-        hotels: collection.hotels
+        hotels: collection.hotels,
+        loaderVisible: false
       })
     });
   }
@@ -63,11 +66,16 @@ class App extends Component {
   render() {
     return (
       <section>
+        
         <Appbar />
-
         
 
+        <aside></aside>
+
         <article className="home-container">
+
+          <Loader visible={this.state.loaderVisible} />
+
           <HotelsResultList hotels={this.state.hotels} />
         </article>
       </section>

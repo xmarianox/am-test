@@ -6,6 +6,7 @@
 .home-container {
   @include size(100%, auto);
   padding: 16px 8px;
+  position: relative;
 
   // responsive
   // @media #{$breakpoint-smartphone-medium} {}
