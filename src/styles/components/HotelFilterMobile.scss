@@ -1,0 +1,18 @@
+@import "../generycs/variables";
+@import "../generycs/mixins";
+// =============================================================================
+// -- HotelFilterMobile Component
+// =============================================================================
+.HotelFilterMobile {
+    @include size(100%, auto);
+
+    li {
+        @include size(100%, auto);
+        
+
+        span {
+            color: $arrowBlue;
+        }
+    }
+
+}

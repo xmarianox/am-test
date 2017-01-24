@@ -3,7 +3,9 @@ import '../styles/containers/Home.scss';
 // Components
 import Appbar from '../components/Appbar';
 import Loader from '../components/Loader';
+import HotelFilterMobile from '../components/HotelFilterMobile';
 import HotelsResultList from '../components/HotelsResultList';
+
 
 /** URL to fetch
  * 
@@ -69,14 +71,22 @@ class App extends Component {
         
         <Appbar />
         
-
-        <aside></aside>
+        
 
         <article className="home-container">
 
           <Loader visible={this.state.loaderVisible} />
 
-          <HotelsResultList hotels={this.state.hotels} />
+          <div>
+            <aside>
+              <HotelFilterMobile />
+            </aside>
+
+            <div>
+              <HotelsResultList hotels={this.state.hotels} />
+            </div>
+          </div>
+          
         </article>
       </section>
     );
