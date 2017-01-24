@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import '../styles/components/OrderResultsList.scss';
 
 class OrderResultsList extends Component {
     render() {
         return (
-            <div>
+            <div className="OrderResultsList">
                 <p>Ordernar</p>
 
                 <Select 

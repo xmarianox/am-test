@@ -1,0 +1,30 @@
+@import "../generycs/variables";
+@import "../generycs/mixins";
+// =============================================================================
+// -- OrderResultsList Component
+// =============================================================================
+.OrderResultsList {
+    @include size(100%, auto);
+    padding-bottom: 16px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+        display: inline-block;
+        margin: auto;
+        margin-right: 5px;
+
+        @include font-size(12px);
+        @include line-height(24px);
+    }
+
+    .Select {
+        width: 160px;
+        margin: auto;
+        margin-left: 5px;
+    }
+}

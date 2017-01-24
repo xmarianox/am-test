@@ -122,16 +122,13 @@ class App extends Component {
     });
   }
 
+
+
   _orderCollection(orderType) {
 
     let collection = this.state.hotels;
-    /**
-     * recommended
-     * price-ASC
-     * price-DESC
-     * stars-ASC
-     * stars-DESC
-     */
+
+    // return a new collection sorted by te selected option
     switch(orderType) {
       case 'recommended':
         return collection.sort((a, b) => { 
