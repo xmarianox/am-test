@@ -8,7 +8,7 @@ class HotelFilterMobile extends Component {
         return (
             <ul className="HotelFilterMobile">
                 <li>
-                    <span>Modificar búsqueda</span>
+                    <span className="triangle-decorator">Modificar búsqueda</span>
                 </li>
 
                 <li>
@@ -16,7 +16,7 @@ class HotelFilterMobile extends Component {
                 </li>
 
                 <li>
-                    <span>Filtrar</span>
+                    <span className="triangle-decorator">Filtrar</span>
                 </li>
             </ul>
         );

@@ -5,10 +5,19 @@
 // =============================================================================
 .HotelFilterMobile {
     @include size(100%, auto);
+    padding: 16px 0;
 
     li {
         @include size(100%, auto);
-        
+        padding: 16px;
+        display: block;
+        cursor: pointer;
+        text-align: center;
+
+        border-bottom: 1px solid $filterDivider;
+
+        @include font-size(14px);
+        @include line-height(16px);
 
         span {
             color: $arrowBlue;

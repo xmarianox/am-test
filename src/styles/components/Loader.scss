@@ -23,7 +23,7 @@
         align-items: center;
         justify-content: center;
         //
-        @include fade-in(.5ms);
+        @include fade-out(.5ms);
     }
 
     // ITEMS

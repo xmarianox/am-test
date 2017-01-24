@@ -20,7 +20,7 @@
     margin-bottom: 16px;
     position: relative;
     // animateITems
-    @include fade-in(.5ms);
+    @include fade-in(.3ms);
 
     // gallery
     .image-gallery-image {
