@@ -111,28 +111,60 @@ class App extends Component {
 
 
   _handleOptionChange(item) {
+
+    let newOrder = this._orderCollection(item.value);
+
+    //console.log(`Collection ${ newOrder }`);
+
     this.setState({
+      hotels: newOrder,
       selectedOption: item.value
     });
   }
 
-  _orderCollection() {
+  _orderCollection(orderType) {
 
     let collection = this.state.hotels;
-    let orderType = this.state.selectedOption;
-
-/**
- * recommended
- * price-ASC
- * price-DESC
- * stars-ASC
- * stars-DESC
- */
-    // let map = collection.map((el, i) => {
-    //   return 
-    // })
+    /**
+     * recommended
+     * price-ASC
+     * price-DESC
+     * stars-ASC
+     * stars-DESC
+     */
+    switch(orderType) {
+      case 'recommended':
+        return collection.sort((a, b) => { 
+          return (a === b) ? 0 : a? -1 : 1; 
+        });
+      case 'price-ASC':
+        return collection.sort((a, b) => {
+          return parseFloat(a.rate.price.show_amount_per_night_per_room) - parseFloat(b.rate.price.show_amount_per_night_per_room);
+        });
+      case 'price-DESC':
+        return collection.sort((a, b) => {
+          return parseFloat(b.rate.price.show_amount_per_night_per_room) - parseFloat(a.rate.price.show_amount_per_night_per_room);
+        });
+      case 'stars-ASC':
+        return collection.sort((a, b) => {
+          return parseFloat(a.stars) - parseFloat(b.stars);
+        });
+      case 'stars-DESC':
+        return collection.sort((a, b) => {
+          return parseFloat(b.stars) - parseFloat(a.stars);
+        });
+      
+      default:
+        return;
+    }
 
   }
+
+  _sortListRecommended(a, b) {
+    return 
+  }
+
+  _sor
 
 
 }
