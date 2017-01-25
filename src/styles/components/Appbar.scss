@@ -8,9 +8,18 @@
     // texts
     color: $white;
 
+    &-blue-container {
+        @include size(100%, auto);
+        background-color: $darkBlue;
+        margin: 0 auto;
+
+        @media #{$breakpoint-smartphone-big-landscape} {
+            padding: 0 24px;
+        }
+    }
+
     &-container {
         @include size(100%, 56px);
-        background-color: $darkBlue;
         // flex
         display: flex;
         flex-direction: row;

@@ -53,27 +53,29 @@ class Appbar extends Component {
     render() {
         return (
             <header className="appbar">
-                <div className="appbar-container">
-                    <a href="#" className="appbar-icon" title="almundo.com">
-                        <img src={brandIcon} alt="almundo.com" />
-                    </a>
+                <div className="appbar-blue-container">
+                    <div className="appbar-container">
+                        <a href="#" className="appbar-icon" title="almundo.com">
+                            <img src={brandIcon} alt="almundo.com" />
+                        </a>
 
-                    <div className="appbar-mini-menu">
-                        <ul>
-                            <li>
-                                <a href="#" title="Ingresar"><i className="material-icons">person</i></a>
-                            </li>
-                            <li>
-                                <a href="#" title="Llamanos"><i className="material-icons">phone</i></a>
-                            </li>
-                            <li>
-                                <button className={ this.state.menu_open ? 'btn-hamburger active' : 'btn-hamburger' } 
-                                    onClick={this._toggleMenu.bind(this)} 
-                                    type="button" role="button">
-                                    <span className="lines"></span>
-                                </button>
-                            </li>
-                        </ul>
+                        <div className="appbar-mini-menu">
+                            <ul>
+                                <li>
+                                    <a href="#" title="Ingresar"><i className="material-icons">person</i></a>
+                                </li>
+                                <li>
+                                    <a href="#" title="Llamanos"><i className="material-icons">phone</i></a>
+                                </li>
+                                <li>
+                                    <button className={ this.state.menu_open ? 'btn-hamburger active' : 'btn-hamburger' } 
+                                        onClick={this._toggleMenu.bind(this)} 
+                                        type="button" role="button">
+                                        <span className="lines"></span>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>{/* blue container */}
 
