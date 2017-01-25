@@ -27,27 +27,23 @@ class Appbar extends Component {
                 { id: 13, label: 'Sucursales', route: '#' },
                 { id: 14, label: 'Club Almundo', route: '#' },
                 { id: 15, label: 'Ayuda', route: '#' }
-            ]
+            ],
+            // width: window.innerWidth,
+            // height: window.innerHeight
         };
     }
 
-    _toggleMenu() {
-        this.setState({ menu_open: !this.state.menu_open });
+    // Component LifeCycle
+    componentWillMount() {
+        this._updateDimensions.bind(this);
     }
-
-    _renderMenu(visible) {
-        if (visible) {
-            return (
-                <div className="appbar-container-menu">
-                    <ul className="appbar-menu">
-                    { this.state.munu_items.map((item) => {
-                            return <li key={item.id}><a href={item.route} title={item.label}>{item.label}</a></li>;
-                        })
-                    }
-                    </ul>
-                </div>
-            );
-        }
+    
+    componentDidMount() {
+        window.addEventListener('resize', this._updateDimensions.bind(this));
+    }
+    
+    componentWillUnmount() {
+        window.removeEventListener('resize', this._updateDimensions.bind(this));
     }
 
     render() {
@@ -79,9 +75,54 @@ class Appbar extends Component {
                     </div>
                 </div>{/* blue container */}
 
-                {this._renderMenu(this.state.menu_open)}
+                {this._renderMenu(this.state)}
             </header>
         );
+    }
+
+    // Component Events
+    _toggleMenu() {
+        this.setState({ menu_open: !this.state.menu_open });
+    }
+
+    _renderMenu(state) {
+
+        if (state.width >= 1200) {
+            return (
+                <div className="appbar-container-menu">
+                    <ul className="appbar-menu">
+                    { state.munu_items.map((item) => {
+                            return <li key={item.id}><a href={item.route} title={item.label}>{item.label}</a></li>;
+                        })
+                    }
+                    </ul>
+                </div>
+            );
+
+        } else {
+
+            if (state.menu_open) {
+                return (
+                    <div className="appbar-container-menu">
+                        <ul className="appbar-menu">
+                        { state.munu_items.map((item) => {
+                                return <li key={item.id}><a href={item.route} title={item.label}>{item.label}</a></li>;
+                            })
+                        }
+                        </ul>
+                    </div>
+                );
+            }
+
+        }
+    
+    }
+
+    _updateDimensions() {
+        this.setState({
+            width: window.innerWidth,
+            height: window.innerHeight
+        });
     }
 
 }

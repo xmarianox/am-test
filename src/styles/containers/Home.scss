@@ -17,8 +17,22 @@
   @media #{$breakpoint-tablet-port} {
     padding: 0 8px 16px;
   }
-  // @media #{$breakpoint-tablet-land} {}
+
+  @media #{$breakpoint-tablet-land} {
+    padding: 0 32px 16px;
+  }
   // @media #{$breakpoint-laptop-small} {}
   // @media #{$breakpoint-laptop-big} {}
   // @media #{$breakpoint-desktop-medium} {}
+}
+
+@media #{$breakpoint-laptop-small} {
+  .aside-filters {
+    width: 25%;
+  }
+
+  .main-info {
+      width: 75%;
+  }
+
 }

@@ -8,6 +8,11 @@
     // texts
     color: $white;
 
+    @media #{$breakpoint-laptop-small} {
+        background-image: url(https://images.almundo.com/205/image/upload/q_auto/v1474474096/static/components/header-bg.jpg);
+        background-size: cover;
+    }
+
     &-blue-container {
         @include size(100%, auto);
         background-color: $darkBlue;
@@ -20,6 +25,14 @@
         @media #{$breakpoint-tablet-port} {
             padding: 0;
         }
+
+        @media #{$breakpoint-tablet-land} {
+            padding: 0 24px;
+        }
+
+        @media #{$breakpoint-laptop-small} {
+            background-color: rgba(0,44,119,0.7);
+        }
     }
 
     &-container {
@@ -30,6 +43,10 @@
         flex-wrap: nowrap;
         align-items: center;
         justify-content: space-between;
+
+        @media #{$breakpoint-laptop-small} {
+            height: 80px;   
+        }
     }
 
     // brand icon
@@ -38,6 +55,11 @@
         display: block;
         margin: auto;
         margin-left: 8px;
+
+        @media #{$breakpoint-laptop-small} {
+            @include size(232px, auto);
+        }
+
 
         img {
             @include size(100%, auto);
@@ -80,30 +102,57 @@
     &-container-menu {
         @include size(100%, auto);
         background-color: $white;
+
+        @media #{$breakpoint-laptop-small} {
+            background-color: rgba(0,44,119,0.4);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
     }
 
     &-menu {
         @include size(100%, auto);
-        background-color: $white;
+        //background-color: $white;
+
+        @media #{$breakpoint-laptop-small} {
+            text-align: center;
+        }
 
         li {
-          @include size(100%, auto);
-          border-bottom: 1px solid $lightGray;
-          padding: 0 16px;
-          @include transition(0.2s);
+            @include size(100%, auto);
+            border-bottom: 1px solid $lightGray;
+            padding: 0 16px;
+            @include transition(0.2s);
 
-          &:hover {
-              background-color: $lightGray;
-              @include transition(0.2s);
-          }
+            &:hover {
+                background-color: $lightGray;
+                @include transition(0.2s);
+            }
+
+            @media #{$breakpoint-laptop-small} {
+                @include size(auto, auto);
+                display: inline-block;
+                padding: 0 15px;
+                border-bottom: none;
+
+                &:hover {
+                    background-color: rgba(0,44,119,0.5);
+                }
+            }
         }
 
         a {
             @include font-size(14px);
             @include line-height(40px);
-            flex-wrap: 400;
+            font-weight: 400;
             color: $darkGray;
             display: block;
+
+            @media #{$breakpoint-laptop-small} {
+                @include line-height(34px);
+                color: $white;
+                font-weight: bold;
+            }
         }
     }
 

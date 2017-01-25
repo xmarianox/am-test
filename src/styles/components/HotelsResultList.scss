@@ -20,6 +20,7 @@
     position: relative;
     // animateITems
     @include fade-in(.3ms);
+    @include transition(0.2s);
 
     // gallery
     .image-gallery-image {
