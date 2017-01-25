@@ -16,6 +16,10 @@
         @media #{$breakpoint-smartphone-big-landscape} {
             padding: 0 24px;
         }
+
+        @media #{$breakpoint-tablet-port} {
+            padding: 0;
+        }
     }
 
     &-container {
