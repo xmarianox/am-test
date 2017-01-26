@@ -27,23 +27,8 @@ class Appbar extends Component {
                 { id: 13, label: 'Sucursales', route: '#' },
                 { id: 14, label: 'Club Almundo', route: '#' },
                 { id: 15, label: 'Ayuda', route: '#' }
-            ],
-            // width: window.innerWidth,
-            // height: window.innerHeight
+            ]
         };
-    }
-
-    // Component LifeCycle
-    componentWillMount() {
-        this._updateDimensions.bind(this);
-    }
-    
-    componentDidMount() {
-        window.addEventListener('resize', this._updateDimensions.bind(this));
-    }
-    
-    componentWillUnmount() {
-        window.removeEventListener('resize', this._updateDimensions.bind(this));
     }
 
     render() {
@@ -87,19 +72,19 @@ class Appbar extends Component {
 
     _renderMenu(state) {
 
-        if (state.width >= 1200) {
-            return (
-                <div className="appbar-container-menu">
-                    <ul className="appbar-menu">
-                    { state.munu_items.map((item) => {
-                            return <li key={item.id}><a href={item.route} title={item.label}>{item.label}</a></li>;
-                        })
-                    }
-                    </ul>
-                </div>
-            );
+        // if (state.width >= 1200) {
+        //     return (
+        //         <div className="appbar-container-menu">
+        //             <ul className="appbar-menu">
+        //             { state.munu_items.map((item) => {
+        //                     return <li key={item.id}><a href={item.route} title={item.label}>{item.label}</a></li>;
+        //                 })
+        //             }
+        //             </ul>
+        //         </div>
+        //     );
 
-        } else {
+        // } else {
 
             if (state.menu_open) {
                 return (
@@ -114,15 +99,8 @@ class Appbar extends Component {
                 );
             }
 
-        }
+        //}
     
-    }
-
-    _updateDimensions() {
-        this.setState({
-            width: window.innerWidth,
-            height: window.innerHeight
-        });
     }
 
 }

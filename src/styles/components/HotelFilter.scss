@@ -1,0 +1,37 @@
+@import "../generycs/variables";
+@import "../generycs/mixins";
+// =============================================================================
+// -- HotelFilterMobile Component
+// =============================================================================
+.HotelFilter {
+    display: none;
+    @media #{$breakpoint-laptop-small} {
+        @include size(100%, auto);
+        display: block;
+        margin-bottom: 16px;
+
+        .results-map {
+            @include size(100%, auto);
+            background-color: $white;
+            box-shadow: 0px 1px 3px 0px rgba(119, 119, 119, 0.3);
+            text-align: center;
+
+            img {
+                @include size(100%, auto);
+                display: block;
+            }
+
+            a {
+                color: $arrowBlue;
+                @include font-size(14px);
+                @include line-height(16px);
+                display: inline-block;
+                padding: 8px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

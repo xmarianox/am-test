@@ -4,6 +4,7 @@ import '../styles/containers/Home.scss';
 import Appbar from '../components/Appbar';
 import Loader from '../components/Loader';
 import HotelFilterMobile from '../components/HotelFilterMobile';
+import HotelFilter from '../components/HotelFilter';
 import OrderResultsList from '../components/OrderResultsList';
 import HotelsResultList from '../components/HotelsResultList';
 
@@ -32,7 +33,8 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  // Component LifeCycle
+  componentDidMount() {    
     fetch(API_URL).then((response) => {
       if (response.status >= 400) {
         throw new Error('Bad response from server');
@@ -51,7 +53,7 @@ class App extends Component {
     return (
       <section>
         
-        <Appbar />
+        <Appbar mWidth={this.state.width} mHeight={this.state.height} />
         
       
         <article className="home-container">
@@ -61,17 +63,19 @@ class App extends Component {
           <div className="container">
 
             <aside className="aside-filters">
-              <HotelFilterMobile />
 
+              <HotelFilter />
+
+              <HotelFilterMobile />
+              
+            </aside>
+
+            <div className="main-info">
               <OrderResultsList
                 value={this.state.selectedOption}
                 options={this.state.orderOptions} 
                 onChangeOrder={this._handleOptionChange.bind(this)}
               />
-
-            </aside>
-
-            <div className="main-info">
               <HotelsResultList hotels={this.state.hotels} />
             </div>
           </div>

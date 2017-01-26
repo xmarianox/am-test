@@ -6,12 +6,15 @@
 .OrderResultsList {
     @include size(100%, auto);
     padding-bottom: 16px;
-
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
+
+    @media #{$breakpoint-laptop-small} {
+        padding-bottom: 8px;
+    }
 
     p {
         display: inline-block;
@@ -26,5 +29,9 @@
         width: 160px;
         margin: auto;
         margin-left: 5px;
+
+        @media #{$breakpoint-laptop-small} {
+            margin-right: 0;
+        }
     }
 }

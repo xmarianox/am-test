@@ -29,10 +29,12 @@
 @media #{$breakpoint-laptop-small} {
   .aside-filters {
     width: 25%;
+    padding: 44px 8px 0;
   }
 
   .main-info {
       width: 75%;
+      padding: 0 8px;
   }
 
 }

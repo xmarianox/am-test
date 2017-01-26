@@ -7,6 +7,10 @@
     @include size(100%, auto);
     padding-bottom: 16px;
 
+    @media #{$breakpoint-laptop-small} {
+        display: none;
+    }
+
     li {
         @include size(100%, auto);
         padding: 16px;
