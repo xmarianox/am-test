@@ -33,5 +33,53 @@
                 }
             }
         }
+
+        .item-filter {
+            @include size(100%, auto);
+            background-color: $white;
+            border-bottom: 4px solid #F4F4F4;
+            box-shadow: 0px 1px 3px 0px rgba(119, 119, 119, 0.3);
+
+
+            header {
+                @include font-size(14px);
+                @include line-height(16px);
+                font-weight: bold;
+                color: $arrowBlue;
+                padding: 16px;
+
+                .material-icons {
+                    @include size(14px, 14px);
+                    @include font-size(14px);
+                    @include line-height(14px);
+                    vertical-align: middle;
+                }
+            }
+
+            label {
+                @include font-size(14px);
+                @include line-height(16px);
+                display: block;
+                padding: 8px 16px;
+
+                input[type=checkbox] {
+                    @include size(12px, 12px);
+                    margin-right: 5px;
+                }
+
+                span {
+                    @include font-size(14px);
+                    @include line-height(14px);
+                }
+
+                .material-icons {
+                    @include size(14px, 14px);
+                    @include font-size(14px);
+                    @include line-height(14px);
+                    vertical-align: middle;
+                    color: $starYellow;
+                }
+            }
+        }
     }
 }

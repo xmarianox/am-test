@@ -17,8 +17,10 @@ class HotelFilter extends Component {
                 <div>
                     <h2>Filtrar</h2>
 
-                    <div>
-                        <span><i className="material-icons">search</i> Nombre de hotel</span>
+                    <div className="item-filter">
+                        <header>
+                            <span><i className="material-icons">search</i> Nombre de hotel</span>
+                        </header>
 
                         <div>
                             <input type="text" name="hotel-name" placeholder="Ingrese el nombre del hotel"/>
@@ -26,21 +28,35 @@ class HotelFilter extends Component {
                         </div>
                     </div>
 
-                    <div>
-                        <span><i className="material-icons">attach_money</i> Precio por noche</span>
+                    <div className="item-filter">
+                        <header>
+                            <span><i className="material-icons">attach_money</i> Precio por noche</span>
+                        </header>
                     </div>
 
 
-                    <div>
-                        <span><i className="material-icons">star_rate</i> Estrellas</span>
+                    <div className="item-filter">
+                        <header>
+                            <span><i className="material-icons">star_rate</i> Estrellas</span>
+                        </header>
 
-                        <label for="">
-                            <input type="checkbox" name="" value="" />
+                        <label htmlFor="stars_filter">
+                            <input 
+                                type="checkbox" 
+                                name="stars_filter" 
+                                value="all"
+                                onChange={this._handleInputChange.bind(this)} 
+                            />
                             <span>Todas las estrellas</span>
                         </label>
 
-                        <label for="">
-                            <input type="checkbox" name="" value="" />
+                        <label htmlFor="stars_filter">
+                            <input 
+                                type="checkbox" 
+                                name="stars_filter" 
+                                value="5" 
+                                onChange={this._handleInputChange.bind(this)} 
+                            />
                             <span>
                                 <i className="material-icons">star_rate</i>
                                 <i className="material-icons">star_rate</i> 
@@ -50,8 +66,13 @@ class HotelFilter extends Component {
                             </span>
                         </label>
 
-                        <label for="">
-                            <input type="checkbox" name="" value="" />
+                        <label htmlFor="stars_filter">
+                            <input 
+                                type="checkbox" 
+                                name="stars_filter" 
+                                value="4" 
+                                onChange={this._handleInputChange.bind(this)} 
+                            />
                             <span>
                                 <i className="material-icons">star_rate</i>
                                 <i className="material-icons">star_rate</i> 
@@ -60,8 +81,13 @@ class HotelFilter extends Component {
                             </span>
                         </label>
 
-                        <label for="">
-                            <input type="checkbox" name="" value="" />
+                        <label htmlFor="stars_filter">
+                            <input 
+                                type="checkbox" 
+                                name="stars_filter" 
+                                value="3" 
+                                onChange={this._handleInputChange.bind(this)} 
+                            />
                             <span>
                                 <i className="material-icons">star_rate</i>
                                 <i className="material-icons">star_rate</i> 
@@ -69,16 +95,26 @@ class HotelFilter extends Component {
                             </span>
                         </label>
 
-                        <label for="">
-                            <input type="checkbox" name="" value="" />
+                        <label htmlFor="stars_filter">
+                            <input 
+                                type="checkbox" 
+                                name="stars_filter" 
+                                value="2" 
+                                onChange={this._handleInputChange.bind(this)} 
+                            />
                             <span>
                                 <i className="material-icons">star_rate</i>
                                 <i className="material-icons">star_rate</i> 
                             </span>
                         </label> 
 
-                        <label for="">
-                            <input type="checkbox" name="" value="" />
+                        <label htmlFor="stars_filter">
+                            <input 
+                                type="checkbox" 
+                                name="stars_filter" 
+                                value="1" 
+                                onChange={this._handleInputChange.bind(this)} 
+                            />
                             <span>
                                 <i className="material-icons">star_rate</i>
                             </span>
@@ -90,6 +126,17 @@ class HotelFilter extends Component {
 
             </div>
         );
+    }
+
+
+    _handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
     }
 }
 
