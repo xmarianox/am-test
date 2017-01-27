@@ -6,7 +6,23 @@ import 'rc-slider/assets/index.css';
 
 class HotelFilter extends Component {
 
+    constructor() {
+        super();
+
+        this.state = {
+            lowerBound: 3,
+            upperBound: 95,
+            value: [3, 95]
+        }
+    }
+
     render() {
+        const data = this.props.data;
+        // order
+        const collection = this._setSertedData(data);
+
+        const {lowerBound, upperBound} = this._setBounds(collection);
+
         return (
             <div className="HotelFilter">
                 
@@ -14,7 +30,6 @@ class HotelFilter extends Component {
                     <img src="https://almundo.com.ar/hotels/static/27/images/result-map.png" alt="Ver hoteles en el mapa" />
                     <a href="#" title="Ver hoteles en el mapa">Ver hoteles en el mapa</a>
                 </div>
-
 
                 <div>
                     <h2>Filtrar</h2>
@@ -36,7 +51,12 @@ class HotelFilter extends Component {
                         </header>
 
                         <div className="range-container">
-                            <Slider.Range min={0} max={100} defaultValue={[3, 95]} onChange={this._handleRangeChange.bind(this)} />
+                            <Slider.Range min={0} max={100} defaultValue={this.state.value} onChange={this._handleRangeChange.bind(this)} />
+
+                            <div className="price-bounds">
+                                <span>${lowerBound}</span>
+                                <span>${upperBound}</span>
+                            </div>
                         </div>
                     </div>
 
@@ -146,6 +166,28 @@ class HotelFilter extends Component {
 
     _handleRangeChange() {
        console.log(`event: ${event}`)
+    }
+
+    _setSertedData(collection) {
+        return collection.sort((a, b) => {
+          return parseFloat(a.rate.price.show_amount_per_night_per_room) - parseFloat(b.rate.price.show_amount_per_night_per_room);
+        });
+    }
+
+    _setBounds(collection) {
+        let lowerBound, upperBound;
+        
+        for (let i = 0; i < collection.length; i++) {
+            if (i === 0) {
+                lowerBound = collection[i].rate.price.show_amount_per_night_per_room;
+            } else if (i === collection.length - 1) {
+                upperBound = collection[i].rate.price.show_amount_per_night_per_room;
+            }
+        }
+
+        console.log(`lowerBound: ${lowerBound}, upperBound: ${upperBound}`);
+
+        return {lowerBound, upperBound};
     }
 }
 

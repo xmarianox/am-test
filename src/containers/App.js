@@ -64,10 +64,10 @@ class App extends Component {
 
             <aside className="aside-filters">
 
-              <HotelFilter />
+              <HotelFilter data={this.state.hotels} />
 
               <HotelFilterMobile />
-              
+
             </aside>
 
             <div className="main-info">

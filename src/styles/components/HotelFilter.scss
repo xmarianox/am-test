@@ -140,6 +140,23 @@
                     border: 1px solid $darkGray;
                     top: -3px;
                 }
+
+                .price-bounds {
+                    @include size(100%, auto);
+                    padding-top: 16px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    span {
+                        @include font-size(14px);
+                        @include line-height(16px);
+                        font-weight: bold;
+
+                    }
+                }
             }
         }
 
