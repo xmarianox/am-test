@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import '../styles/components/HotelFilter.scss';
 
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 class HotelFilter extends Component {
 
@@ -32,6 +34,10 @@ class HotelFilter extends Component {
                         <header>
                             <span><i className="material-icons">attach_money</i> Precio por noche</span>
                         </header>
+
+                        <div className="range-container">
+                            <Slider.Range min={0} max={100} defaultValue={[3, 95]} onChange={this._handleRangeChange.bind(this)} />
+                        </div>
                     </div>
 
                     <div className="item-filter">
@@ -136,6 +142,10 @@ class HotelFilter extends Component {
         this.setState({
             [name]: value
         });
+    }
+
+    _handleRangeChange() {
+       console.log(`event: ${event}`)
     }
 }
 

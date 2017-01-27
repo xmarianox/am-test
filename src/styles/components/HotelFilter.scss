@@ -62,6 +62,8 @@
                         position: absolute;
                         top: 6px;
                         right: 0px;
+
+                        transform: rotate(180deg);
                     }
                 }
 
@@ -110,6 +112,33 @@
                 input[type=text] {
                     @include size(66%, 32px);
                     display: inline-block;
+                }
+            }
+
+            .range-container {
+                @include size(100%, auto);
+                padding: 16px;
+
+                .rc-slider-rail {
+                    height: 8px;
+                    @include border-radius(2px);
+                }
+
+                .rc-slider-track {
+                    height: 8px;
+                    background-color: $dashedGray;
+                }
+
+                .rc-slider-step {
+                    height: 8px;
+                }
+
+                .rc-slider-handle {
+                    @include size(16px, 32px);
+                    @include border-radius(8px);
+                    background-color: $white;
+                    border: 1px solid $darkGray;
+                    top: -3px;
                 }
             }
         }
