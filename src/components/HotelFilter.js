@@ -22,9 +22,9 @@ class HotelFilter extends Component {
                             <span><i className="material-icons">search</i> Nombre de hotel</span>
                         </header>
 
-                        <div>
+                        <div className="item-filter-form-control">
                             <input type="text" name="hotel-name" placeholder="Ingrese el nombre del hotel"/>
-                            <button className="btn btn-action">Aceptar</button>
+                            <button className="btn btn-secondary">Aceptar</button>
                         </div>
                     </div>
 
@@ -33,7 +33,6 @@ class HotelFilter extends Component {
                             <span><i className="material-icons">attach_money</i> Precio por noche</span>
                         </header>
                     </div>
-
 
                     <div className="item-filter">
                         <header>

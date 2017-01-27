@@ -1,67 +1,27 @@
 // =============================================================================
 // - Form elements containers
 // =============================================================================
-.form-control {
-  @include size(100%, auto);
-  margin: 0 auto 20px;
-  @include placeholder($black);
-
-  &:last-child {
-    margin-bottom: 0px;
-  }
-}
-
-form {
-  @include size(100%, auto);
-  overflow: hidden;
-}
 
 // =============================================================================
 // -  Inputs
 // =============================================================================
 input[type=text] {
-  @include size(100%, 39px);
-  @include border-radius(0px);
-  border: 1px solid $white;
+  @include size(100%, 32px);
+  @include border-radius(2px);
   background-color: $white;
   display: block;
-  padding: 0 16px;
-  //
-  -webkit-appearance: caret;
-  // text
-  // font-family: 'Lato', sans-serif;
-  // @include font-size(16px);
-  // @include line-height(22px);
-  // color: $ultraDarkGray;
-  // &.error{
-  //   color: $red;
-  // }
-}
-
-textarea {
-  @include size(100%, 78px);
-  @include border-radius(0px);
-  border: 1px solid $white;
-  background-color: $white;
-  display: block;
-  padding: 0 16px;
-  //
-  -webkit-appearance: caret;
-  // text
-  // font-family: 'Lato', sans-serif;
-  // @include font-size(16px);
-  // @include line-height(22px);
-  // color: $ultraDarkGray;
-  // &.error{
-  //   color: $red;
-  // }
+  padding: 0 8px;
+  border-width: 1px;
+  border-color: $filterDivider;
+  border-top-color: $dashedGray;
+  @include font-size(14px);
+  @include line-height(16px);
+  color: $darkGray;
 }
 
 label {
-  // font-family: 'Lato', sans-serif;
   @include font-size(14px);
   @include line-height(34px);
-  // color: $ultraDarkGray;
   
   @media #{$breakpoint-smartphone-medium} {
       @include font-size(16px);
