@@ -10,9 +10,9 @@ class HotelFilter extends Component {
         super();
 
         this.state = {
-            lowerBound: 3,
-            upperBound: 95,
-            value: [3, 95]
+            lBound: 0,
+            uBound: 0,
+            value: [0, 100]
         }
     }
 
@@ -20,8 +20,13 @@ class HotelFilter extends Component {
         const data = this.props.data;
         // order
         const collection = this._setSertedData(data);
+        //
+        let {lowerBound, upperBound} = this._setBounds(collection);
 
-        const {lowerBound, upperBound} = this._setBounds(collection);
+        // this.setState({
+        //     lBound: lowerBound,
+        //     uBound: upperBound,
+        // });
 
         return (
             <div className="HotelFilter">
@@ -54,8 +59,8 @@ class HotelFilter extends Component {
                             <Slider.Range min={0} max={100} defaultValue={this.state.value} onChange={this._handleRangeChange.bind(this)} />
 
                             <div className="price-bounds">
-                                <span>${lowerBound}</span>
-                                <span>${upperBound}</span>
+                                <span>${lowerBound + this.state.value[0]}</span>
+                                <span>${upperBound - this.state.value[1]}</span>
                             </div>
                         </div>
                     </div>
@@ -164,8 +169,10 @@ class HotelFilter extends Component {
         });
     }
 
-    _handleRangeChange() {
-       console.log(`event: ${event}`)
+    _handleRangeChange(value) {
+       this.setState({
+           value: value
+       })
     }
 
     _setSertedData(collection) {
@@ -184,9 +191,7 @@ class HotelFilter extends Component {
                 upperBound = collection[i].rate.price.show_amount_per_night_per_room;
             }
         }
-
-        console.log(`lowerBound: ${lowerBound}, upperBound: ${upperBound}`);
-
+        //console.log(`lowerBound: ${lowerBound}, upperBound: ${upperBound}`);
         return {lowerBound, upperBound};
     }
 }
