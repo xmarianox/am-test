@@ -55,12 +55,36 @@ class App extends Component {
         
         <Appbar mWidth={this.state.width} mHeight={this.state.height} />
         
-      
         <article className="home-container">
 
           <Loader visible={this.state.loaderVisible} />
 
           <div className="container">
+
+            <div className="hotel-detail-info">
+              
+              <ul className="breadcrumbs">
+                <li><a href="" title="Home">Home</a></li>
+                <li>/</li>
+                <li><a href="" title="Hoteles">Hoteles</a></li>
+                <li>/</li>
+                <li><a href="" title="madrid">madrid</a></li>
+              </ul>
+
+              <div className="information-container">
+                <p>Hoteles disponibles para:</p>
+
+                <ul>
+                  <li><i className="material-icons">location_on</i> madrid</li>
+                  <li><i className="material-icons">date_range</i> 16/03/2017</li>
+                  <li><i className="material-icons">date_range</i> 30/03/2017</li>
+                  <li><i className="material-icons">person</i> 2 huéspedes</li>
+                </ul>
+
+                <a href="" title="Modificar búsqueda">Modificar búsqueda</a>
+              </div>
+
+            </div>
 
             <aside className="aside-filters">
 

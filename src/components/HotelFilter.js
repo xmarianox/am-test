@@ -23,11 +23,6 @@ class HotelFilter extends Component {
         //
         let {lowerBound, upperBound} = this._setBounds(collection);
 
-        // this.setState({
-        //     lBound: lowerBound,
-        //     uBound: upperBound,
-        // });
-
         return (
             <div className="HotelFilter">
                 

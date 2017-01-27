@@ -27,6 +27,10 @@
 }
 
 @media #{$breakpoint-laptop-small} {
+  .hotel-detail-info {
+    width: 100%;
+    padding: 16px 8px;
+  }
   .aside-filters {
     width: 25%;
     padding: 44px 8px 0;
@@ -35,6 +39,91 @@
   .main-info {
       width: 75%;
       padding: 0 8px;
+  }
+}
+
+.hotel-detail-info {
+  display: none;
+
+  @media #{$breakpoint-laptop-small} {
+    display: block;
+  }
+
+  .breadcrumbs {
+    padding-bottom: 8px;
+
+    li {
+      @include font-size(11px);
+      @include line-height(16px);
+      display: inline-block;
+      color: $texts;
+      margin-right: 4px;
+
+      a {
+        color: #157ab1;
+
+        &:hover {
+          color: #1a99df;
+          text-decoration: underline;
+        }
+      }
+
+      &:last-child {
+        a {
+          color: $texts;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .information-container {
+    @include size(100%, auto);
+    padding: 16px;
+    border: 1px solid $filterDivider;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      @include size(100%, auto);
+      @include font-size(20px);
+      @include line-height(24px);
+      margin-bottom: 8px;
+    }
+
+    ul {
+
+      li {
+        display: inline-block;
+        margin-right: 20px;
+        @include font-size(14px);
+        @include line-height(20px);
+
+        .material-icons {
+          @include font-size(16px);
+          @include line-height(22px);
+          vertical-align: bottom;
+        }
+      }
+
+    }
+
+    a {
+      margin: auto;
+      margin-left: 0;
+      color: #157ab1;
+      
+      &:hover {
+        color: #1a99df;
+        text-decoration: underline;
+      }
+    }
   }
 
 }
